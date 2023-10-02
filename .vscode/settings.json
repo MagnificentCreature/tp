@@ -1,0 +1,16 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true,
+        "source.fixAll": true,
+        "source.fixAll.eslint": true,
+        "source.fixAll.stylelint": true
+    },
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.checkstyle.properties": {
+        "config_loc": "${workspaceFolder}/config/checkstyle",
+        "suppressions_loc": "${workspaceFolder}/config/checkstyle"
+    },
+    "java.checkstyle.version": "10.2",
+    "files.insertFinalNewline": true,
+    "java.saveActions.organizeImports": true
+}
