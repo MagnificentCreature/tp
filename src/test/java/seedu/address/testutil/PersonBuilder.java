@@ -3,6 +3,7 @@ package seedu.address.testutil;
 import java.util.HashSet;
 import java.util.Set;
 
+import seedu.address.model.lead.Lead;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
@@ -20,11 +21,13 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
+    public static final String DEFAULT_LEAD = "cold";
 
     private Name name;
     private Phone phone;
     private Email email;
     private Address address;
+    private Lead lead;
     private Set<Tag> tags;
 
     /**
@@ -35,6 +38,7 @@ public class PersonBuilder {
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
+        lead = new Lead(DEFAULT_LEAD);
         tags = new HashSet<>();
     }
 
@@ -46,6 +50,7 @@ public class PersonBuilder {
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
+        lead = personToCopy.getLead();
         tags = new HashSet<>(personToCopy.getTags());
     }
 
@@ -89,8 +94,23 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Lead} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withLead(String lead) {
+        this.lead = new Lead(lead);
+        return this;
+    }
+
+    /**
+     * Creates the built {@code Person} after building.
+     *
+     * @return the built {@code Person}
+     */
     public Person build() {
-        return new Person(name, phone, email, address, tags);
+        Person person = new Person(name, phone, email, address, tags);
+        person.setLead(lead);
+        return person;
     }
 
 }

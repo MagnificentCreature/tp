@@ -136,25 +136,12 @@
      -fx-background-color: derive(#1d1d1d, 20%);
 }
 
-.pane-with-border {
+.pane {
      -fx-background-color: derive(#1d1d1d, 20%);
-     -fx-border-color: derive(#1d1d1d, 10%);
-     -fx-border-top-width: 1px;
 }
 
 .status-bar {
     -fx-background-color: derive(#1d1d1d, 30%);
-}
-
-.result-display {
-    -fx-background-color: transparent;
-    -fx-font-family: "Segoe UI Light";
-    -fx-font-size: 13pt;
-    -fx-text-fill: white;
-}
-
-.result-display .label {
-    -fx-text-fill: black !important;
 }
 
 .status-bar .label {
@@ -317,24 +304,8 @@
     -fx-text-fill: #F70D1A;
 }
 
-#commandTextField {
-    -fx-background-color: transparent #383838 transparent #383838;
-    -fx-background-insets: 0;
-    -fx-border-color: #383838 #383838 #ffffff #383838;
-    -fx-border-insets: 0;
-    -fx-border-width: 1;
-    -fx-font-family: "Segoe UI Light";
-    -fx-font-size: 13pt;
-    -fx-text-fill: white;
-}
-
 #filterField, #personListPanel, #personWebpage {
     -fx-effect: innershadow(gaussian, black, 10, 0, 0, 0);
-}
-
-#resultDisplay .content {
-    -fx-background-color: transparent, #383838, transparent, #383838;
-    -fx-background-radius: 0;
 }
 
 #tags {
@@ -345,6 +316,32 @@
 #tags .label {
     -fx-text-fill: white;
     -fx-background-color: #3e7b91;
+    -fx-padding: 1 3 1 3;
+    -fx-border-radius: 2;
+    -fx-background-radius: 2;
+    -fx-font-size: 11;
+}
+
+#hot-lead {
+    -fx-text-fill: white;
+    -fx-background-color: #ee4b2b;
+    -fx-padding: 1 3 1 3;
+    -fx-border-radius: 2;
+    -fx-background-radius: 2;
+    -fx-font-size: 11;
+}
+
+#warm-lead {
+    -fx-text-fill: white;
+    -fx-background-color: #e97451;
+    -fx-padding: 1 3 1 3;
+    -fx-border-radius: 2;
+    -fx-background-radius: 2;
+    -fx-font-size: 11;
+}
+#cold-lead {
+    -fx-text-fill: white;
+    -fx-background-color: #85c1e9;
     -fx-padding: 1 3 1 3;
     -fx-border-radius: 2;
     -fx-background-radius: 2;

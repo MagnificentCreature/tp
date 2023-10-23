@@ -1,0 +1,37 @@
+/*@@AY2122S2-CS2103T-T09-4 {lilozz2}-reused
+Past year senior project*/
+
+.menu .label {
+    -fx-text-fill: white;
+    -fx-font-size: 15;
+}
+
+.menu:hover,
+
+.menu:showing {
+    -fx-background-color: #479ECF;
+    -fx-text-fill: white;
+}
+
+.context-menu {
+    -fx-padding: 0;
+}
+
+.menu-item {
+    -fx-background-color: white;
+    -fx-padding: 5;
+    -fx-text-fill: black;
+}
+
+.menu-item .label {
+    -fx-text-fill: black;
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: black;
+}
+
+.menu-item:focused {
+    -fx-background: -fx-accent;
+    -fx-background-color: #E0E0E0;
+}

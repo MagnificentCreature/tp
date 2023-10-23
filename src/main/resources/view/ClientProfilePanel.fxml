@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" minWidth="350" prefWidth="500" stylesheets="@css/clientProfile.css">
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15" />
+    </padding>
+
+    <Label id="name" fx:id="name" text="\$name" />
+
+    <VBox spacing="16">
+        <FlowPane fx:id="tags" />
+
+        <VBox id="contact" spacing="4">
+            <HBox>
+                <HBox spacing="4" HBox.hgrow="ALWAYS" alignment="BASELINE_LEFT">
+                    <Label text="Phone" />
+                    <Text fx:id="phone" text="Unknown" />
+                </HBox>
+                <HBox spacing="4" HBox.hgrow="ALWAYS" alignment="BASELINE_LEFT">
+                    <Label text="Telegram" />
+                    <Text fx:id="telegram" text="Unknown" />
+                </HBox>
+            </HBox>
+
+            <VBox spacing="4">
+                <Label text="Address" />
+                <Text fx:id="address" text="Unknown" />
+            </VBox>
+            <VBox spacing="4">
+                <Label text="Email" />
+                <Text fx:id="email" text="Unknown" />
+            </VBox>
+
+            <HBox>
+                <HBox spacing="4" HBox.hgrow="ALWAYS" alignment="BASELINE_LEFT">
+                    <Label text="Profession" />
+                    <Text fx:id="profession" text="Unknown" />
+                </HBox>
+                <HBox spacing="4" HBox.hgrow="ALWAYS" alignment="BASELINE_LEFT">
+                    <Label text="Income" />
+                    <Text fx:id="income" text="Unknown" />
+                </HBox>
+            </HBox>
+        </VBox>
+
+        <VBox spacing="4">
+            <Label text="Past Interactions" />
+            <ListView fx:id="interactionsList" styleClass="interactions" />
+        </VBox>
+    </VBox>
+</VBox>

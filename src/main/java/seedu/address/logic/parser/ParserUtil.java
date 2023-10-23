@@ -9,6 +9,7 @@ import java.util.Set;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.lead.Lead;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Details;
 import seedu.address.model.person.Email;
@@ -204,5 +205,17 @@ public class ParserUtil {
             tagSet.add(parseTag(tagName));
         }
         return tagSet;
+    }
+
+    /**
+     * Parses {@code String lead} into a {@code Lead}.
+     */
+    public static Lead parseLead(String lead) {
+        requireNonNull(lead);
+        if (!Lead.isValidLead(lead)) {
+            return null;
+        } else {
+            return new Lead(lead);
+        }
     }
 }

@@ -14,6 +14,7 @@ import java.util.function.Predicate;
 
 import org.junit.jupiter.api.Test;
 
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.logic.Messages;
@@ -156,6 +157,11 @@ public class CreateCommandTest {
 
         @Override
         public void updateFilteredPersonList(Predicate<Person> predicate) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public SimpleObjectProperty<Person> getSelectedPerson() {
             throw new AssertionError("This method should not be called.");
         }
     }

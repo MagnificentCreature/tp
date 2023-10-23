@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
+import seedu.address.model.lead.Lead;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
@@ -29,6 +30,7 @@ class JsonAdaptedPerson {
     private final String email;
     private final String address;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
+    private final String lead;
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
@@ -36,7 +38,7 @@ class JsonAdaptedPerson {
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("address") String address,
-            @JsonProperty("tags") List<JsonAdaptedTag> tags) {
+            @JsonProperty("tags") List<JsonAdaptedTag> tags, @JsonProperty("lead") String lead) {
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -44,6 +46,7 @@ class JsonAdaptedPerson {
         if (tags != null) {
             this.tags.addAll(tags);
         }
+        this.lead = lead;
     }
 
     /**
@@ -57,6 +60,11 @@ class JsonAdaptedPerson {
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
+        if (source.getLead() == null) {
+            lead = "";
+        } else {
+            lead = source.getLead().toString().toLowerCase();
+        }
     }
 
     /**
@@ -103,7 +111,12 @@ class JsonAdaptedPerson {
         final Address modelAddress = new Address(address);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags);
+
+        Person person = new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags);
+        if (lead != null && !lead.isEmpty()) {
+            person.setLead(new Lead(lead));
+        }
+        return person;
     }
 
 }

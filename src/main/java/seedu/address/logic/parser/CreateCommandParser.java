@@ -5,6 +5,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DETAILS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_INCOME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_LEAD;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PROFESSION;
@@ -16,6 +17,7 @@ import java.util.stream.Stream;
 
 import seedu.address.logic.commands.CreateCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.lead.Lead;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Details;
 import seedu.address.model.person.Email;
@@ -40,7 +42,7 @@ public class CreateCommandParser implements Parser<CreateCommand> {
     public CreateCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS, PREFIX_TAG,
-                        PREFIX_TELEGRAM, PREFIX_PROFESSION, PREFIX_INCOME, PREFIX_DETAILS);
+                        PREFIX_TELEGRAM, PREFIX_PROFESSION, PREFIX_INCOME, PREFIX_DETAILS, PREFIX_LEAD);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ADDRESS, PREFIX_PHONE, PREFIX_EMAIL)
                 || !argMultimap.getPreamble().isEmpty()) {
@@ -68,8 +70,11 @@ public class CreateCommandParser implements Parser<CreateCommand> {
         Details details = argMultimap.getValue(PREFIX_DETAILS).isPresent()
                 ? ParserUtil.parseDetails(argMultimap.getValue(PREFIX_DETAILS).get())
                 : null;
+        Lead lead = argMultimap.getValue(PREFIX_LEAD).isPresent()
+                ? ParserUtil.parseLead(argMultimap.getValue(PREFIX_LEAD).get())
+                : null;
 
-        Person person = new Person(name, phone, email, address, tagList, telegram, profession, income, details);
+        Person person = new Person(name, phone, email, address, tagList, telegram, profession, income, details, lead);
 
         return new CreateCommand(person);
     }

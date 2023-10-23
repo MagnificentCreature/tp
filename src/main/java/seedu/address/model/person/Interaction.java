@@ -52,6 +52,14 @@ public class Interaction {
         this.outcome = outcome;
     }
 
+    public String getInteraction() {
+        return this.interactionNote;
+    }
+
+    public String getOutcome() {
+        return this.outcome.toString();
+    }
+
     @Override
     public String toString() {
         return interactionNote + "\nThe outcome of this interaction is: " + outcome;

@@ -16,4 +16,5 @@ public class CliSyntax {
     public static final Prefix PREFIX_INCOME = new Prefix("i/");
     public static final Prefix PREFIX_DETAILS = new Prefix("d/");
     public static final Prefix PREFIX_OUTCOME = new Prefix("o/");
+    public static final Prefix PREFIX_LEAD = new Prefix("l/");
 }

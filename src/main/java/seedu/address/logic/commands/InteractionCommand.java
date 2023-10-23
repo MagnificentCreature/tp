@@ -60,7 +60,8 @@ public class InteractionCommand extends Command {
         editInteractions.add(interaction);
         Person editedPerson = new Person(personToEdit.getName(), personToEdit.getPhone(), personToEdit.getEmail(),
                 personToEdit.getAddress(), personToEdit.getTags(), personToEdit.getTelegram(),
-                personToEdit.getProfession(), personToEdit.getIncome(), personToEdit.getDetails());
+                personToEdit.getProfession(), personToEdit.getIncome(), personToEdit.getDetails(),
+                personToEdit.getLead());
         editedPerson.addInteractions(editInteractions);
 
         model.setPerson(personToEdit, editedPerson);

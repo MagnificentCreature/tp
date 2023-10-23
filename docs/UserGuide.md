@@ -112,22 +112,21 @@ View the full details of a client profile.
 
 Format
 ```text
-view profile <client_name>
+view <index>
 ```
 
 ```text
-view profile John Doe
+view 1
 ```
 
 Acceptable Values
-- <client_name>: Alphanumeric, the name of an existing client
+- <index>: Number, the index of the client to view in the list displayed.
 
 Expected Output (Success)
 - The full details of the selected client profile are displayed in the GUI
  
 Expected Output (Failure)
-- Client not found: "Client not found in the address book."
-- Missing client name parameter: "Please enter the client name."
+- Invalid index: "The person index provided is invalid"
 
 ### Create a client interaction [to be implemented]
 

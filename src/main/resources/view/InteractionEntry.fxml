@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" spacing="4">
+    <padding>
+        <Insets top="8" right="8" bottom="8" left="8" />
+    </padding>
+
+    <Label fx:id="outcome" styleClass="outcome" />
+    <Label fx:id="note" />
+</VBox>

@@ -8,6 +8,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import seedu.address.commons.util.ToStringBuilder;
+import seedu.address.model.lead.Lead;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -26,6 +27,7 @@ public class Person {
     private final Set<Tag> tags = new HashSet<>();
 
     // Optional fields
+    private Lead lead;
     private final TelegramHandle telegram;
     private final Profession profession;
     private final Income income;
@@ -43,6 +45,7 @@ public class Person {
         this.address = address;
         this.tags.addAll(tags);
 
+        this.lead = null;
         this.telegram = null;
         this.profession = null;
         this.income = null;
@@ -53,7 +56,7 @@ public class Person {
      * Same constructor but with optional fields.
      */
     public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags,
-        TelegramHandle telegram, Profession profession, Income income, Details details) {
+        TelegramHandle telegram, Profession profession, Income income, Details details, Lead lead) {
         requireAllNonNull(name, phone, email, address, tags);
         this.name = name;
         this.phone = phone;
@@ -65,6 +68,7 @@ public class Person {
         this.profession = profession;
         this.income = income;
         this.details = details;
+        this.lead = lead;
     }
 
     public Name getName() {
@@ -81,6 +85,10 @@ public class Person {
 
     public Address getAddress() {
         return address;
+    }
+
+    public Lead getLead() {
+        return lead;
     }
 
     public TelegramHandle getTelegram() {
@@ -109,8 +117,8 @@ public class Person {
      * @return the updated set of interactions
      */
     public Set<Interaction> addInteractions(Set<Interaction> interactions) {
-        interactions.addAll(interactions);
-        return interactions;
+        this.interactions.addAll(interactions);
+        return this.interactions;
     }
 
     /**
@@ -119,6 +127,13 @@ public class Person {
      */
     public Set<Tag> getTags() {
         return Collections.unmodifiableSet(tags);
+    }
+
+    /**
+     * Changes the lead potential of the client.
+     */
+    public void setLead(Lead newLead) {
+        this.lead = newLead;
     }
 
     /**
