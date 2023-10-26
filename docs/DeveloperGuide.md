@@ -176,6 +176,20 @@ The class also has getters and setters for the fields, as well as a `toString()`
 
 #### Design Considerations
 
+### Dashboard Feature
+
+Dashboard shows the statistics of the current address book as specified in the user stories or other agreed upon metrics. 
+
+#### Current Implementation
+
+It is currently implemented as a `DashboardCommand` that is executed by the `LogicManager` when the user enters the `dashboard` command. This command returns a `CommandResult` object that contains the following statistics:
+- Total number of interactions across all persons.
+- Percentage of person with `INTERESTED` outcome.
+- Percentage of person with `NOT_INTERESTED` outcome.
+
+#### Design Considerations
+
+
 ### \[Proposed\] Undo/redo feature
 
 #### Proposed Implementation
