@@ -26,3 +26,4 @@ docs/_site/
 
 #VSCode settings file
 .vscode/
+build.gradle
