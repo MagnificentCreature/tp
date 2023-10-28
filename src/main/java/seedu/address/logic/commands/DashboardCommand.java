@@ -50,6 +50,19 @@ public class DashboardCommand extends Command {
                 + "Percentage of not interested interactions: "
                 + String.format("%.2f", notInterestedPercentage) + "%\n";
 
-        return new CommandResult(message);
+        return new CommandResult(MESSAGE_SUCCESS + "\n" + message);
+    }
+
+    private int getSpecifiedOutcomeCount(ObservableList<Person> personList, Interaction.Outcome outcome) {
+        return personList.stream()
+                .map(person ->
+                        person.getFilteredInteractions(i -> i.isOutcome(outcome)).size())
+                .reduce(0, Integer::sum);
+    }
+
+    private int getInteractionCount(ObservableList<Person> personList) {
+        return personList.stream()
+                .mapToInt(person -> person.getInteractions().size())
+                .sum();
     }
 }
