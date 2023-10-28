@@ -1,6 +1,7 @@
 package seedu.address.model.person.interaction;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -8,7 +9,7 @@ import java.util.stream.Collectors;
  * Represents interactions as a list of {@code Interaction}.
  */
 public class InteractionList {
-    private final ArrayList<Interaction> interactions = new ArrayList<>();
+    private final List<Interaction> interactions = new ArrayList<>();
 
     /**
      * Construct an empty {@code InteractionList}.
@@ -20,7 +21,7 @@ public class InteractionList {
      *
      * @param interactions The list of interactions to feed into the {@code InteractionList}.
      */
-    public InteractionList(ArrayList<Interaction> interactions) {
+    public InteractionList(List<Interaction> interactions) {
         this.interactions.addAll(interactions);
     }
 
@@ -63,18 +64,18 @@ public class InteractionList {
     }
 
     /**
-     * Returns the ArrayList of {@code Interaction}.
+     * Returns the List of {@code Interaction}.
      */
-    public ArrayList<Interaction> getInteractions() {
+    public List<Interaction> getInteractions() {
         return this.interactions;
     }
 
     /**
      * Returns a filtered list of {@code Interaction} that matches the given predicate.
      */
-    public InteractionList getFilteredInteraction(Predicate<Interaction> predicate) {
-        return new InteractionList(this.interactions.stream()
+    public List<Interaction> getFilteredInteractions(Predicate<Interaction> predicate) {
+        return this.interactions.stream()
             .filter(predicate)
-            .collect(Collectors.toCollection(ArrayList::new)));
+            .collect(Collectors.toCollection(ArrayList::new));
     }
 }

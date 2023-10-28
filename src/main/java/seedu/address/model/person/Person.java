@@ -3,9 +3,9 @@ package seedu.address.model.person;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 import java.util.function.Predicate;
@@ -102,12 +102,12 @@ public class Person {
         return details;
     }
 
-    public ArrayList<Interaction> getInteractions() {
+    public List<Interaction> getInteractions() {
         return interactions.getInteractions();
     }
 
-    public ArrayList<Interaction> getFilteredInteraction(Predicate<Interaction> predicate) {
-        return this.interactions.getFilteredInteraction(predicate).getInteractions();
+    public List<Interaction> getFilteredInteractions(Predicate<Interaction> predicate) {
+        return this.interactions.getFilteredInteractions(predicate);
     }
 
     /**
@@ -278,6 +278,14 @@ public class Person {
          */
         public PersonBuilder withInteractions(InteractionList interactions) {
             this.interactions = interactions;
+            return this;
+        }
+
+        /**
+         * Adds the {@code Interaction} to the {@code Set<Interaction>} of the {@code Person} that we are building.
+         */
+        public PersonBuilder addInteraction(Interaction interaction) {
+            this.interactions.addInteraction(interaction);
             return this;
         }
 
