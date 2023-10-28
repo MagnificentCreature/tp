@@ -176,20 +176,6 @@ The class also has getters and setters for the fields, as well as a `toString()`
 
 #### Design Considerations
 
-### Dashboard Feature
-
-Dashboard shows the statistics of the current address book as specified in the user stories or other agreed upon metrics. 
-
-#### Current Implementation
-
-It is currently implemented as a `DashboardCommand` that is executed by the `LogicManager` when the user enters the `dashboard` command. This command returns a `CommandResult` object that contains the following statistics:
-- Total number of interactions across all persons.
-- Percentage of person with `INTERESTED` outcome.
-- Percentage of person with `NOT_INTERESTED` outcome.
-
-#### Design Considerations
-
-
 ### \[Proposed\] Undo/redo feature
 
 #### Proposed Implementation
@@ -291,21 +277,6 @@ To exit out of the profile view, the user can enter the `list` command, which wi
 
 _{Explain here how the data archiving feature will be implemented}_
 
-### \[Proposed\] Reminder feature
-
-#### Proposed Implementation
-
-The proposed Reminder mechanism is facilitated by `Reminder` and `UniqueReminderList`.
-
-Step 1. The user launches the application for the first time. Data from the `UniqueReminderList` is loaded from memory and displayed in a separate window.
-
-Step 2. The user executes `interaction 1 o/INTERESTED Thinking of giving it a shot` command to add an interaction to the 1st person in the address book. The `interaction` command calls `UniqueReminderList#add()`, creating a new `Reminder` entry in the List with the information from `Person` and `Date`.
-
-Step 3. The user executes `reminder` that displays the same separate window that has been
-
-#### Design considerations:
-
-**Aspect: How Reminders executes:**
 
 --------------------------------------------------------------------------------------------------------------------
 
