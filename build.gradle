@@ -69,8 +69,4 @@ shadowJar {
     archiveFileName = 'connectify.jar'
 }
 
-run {
-    enableAssertions = true
-}
-
 defaultTasks 'clean', 'test'

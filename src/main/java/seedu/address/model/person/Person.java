@@ -282,14 +282,6 @@ public class Person {
         }
 
         /**
-         * Adds the {@code Interaction} to the {@code Set<Interaction>} of the {@code Person} that we are building.
-         */
-        public PersonBuilder addInteraction(Interaction interaction) {
-            this.interactions.add(interaction);
-            return this;
-        }
-
-        /**
          * Creates the built {@code Person} after building.
          *
          * @return the built {@code Person}
