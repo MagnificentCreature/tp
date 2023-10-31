@@ -11,6 +11,7 @@ public class Lead {
     private static final int HOT_LEAD_FOLLOWUP = 1;
     private static final int WARM_LEAD_FOLLOWUP = 4;
     private static final int COLD_LEAD_FOLLOWUP = 8;
+    private static final int NO_LEAD_FOLLOWUP = 4;
     private final LeadType leadType;
 
     /**
@@ -28,12 +29,15 @@ public class Lead {
     }
 
     public int getFollowUpPeriod() {
-        if (leadType.equals(LeadType.HOT)) {
+        switch (leadType) {
+        case HOT:
             return HOT_LEAD_FOLLOWUP;
-        } else if (leadType.equals(LeadType.WARM)) {
+        case WARM:
             return WARM_LEAD_FOLLOWUP;
-        } else {
+        case COLD:
             return COLD_LEAD_FOLLOWUP;
+        default:
+            return NO_LEAD_FOLLOWUP;
         }
     }
 

@@ -3,6 +3,7 @@ package seedu.address.model.person;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -106,6 +107,16 @@ public class Person {
     public List<Interaction> getInteractions() {
         return interactions;
     }
+
+    public LocalDate getFollowUpDate() {
+        if (interactions.isEmpty()) {
+            return null; //TODO: Think if returning null here causes any issues
+        }
+        LocalDate latestInteractionDate = interactions.get(interactions.size() - 1).getDate(); 
+        //TODO: Think if the lastest interaction is always the last one in the list
+        int weeksToAdd = lead.getFollowUpPeriod();
+        return latestInteractionDate.plusWeeks(weeksToAdd);
+    }  
 
     /**
      * Returns a filtered list of {@code Interaction} that matches the given predicate.

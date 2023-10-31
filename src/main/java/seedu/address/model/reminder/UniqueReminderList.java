@@ -71,13 +71,17 @@ public class UniqueReminderList implements Iterable<Reminder> {
      * The Reminder must not already exist in the list.
      */
     public void add(Person person, Interaction interaction) {
-        requireAllNonNull(person, interaction);
+        requireAllNonNull(person);
+
+        if (interaction == null) {
+            return;
+        }
+
         //Person must have lead and interaciton to have a reminder
         if (person.getLead() == null) {
             return;
         }
-        Reminder toAdd = new Reminder(person.getName(), person.getPhone(), person.getTags(),
-                person.getInteractions(), person.getLead(), interaction.getDate());
+        Reminder toAdd = new Reminder(person);
         if (contains(toAdd)) {
             throw new DuplicateReminderException();
         }
