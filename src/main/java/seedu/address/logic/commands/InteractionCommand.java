@@ -65,7 +65,6 @@ public class InteractionCommand extends Command {
 
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
-        model.addReminder(personToEdit);
 
         return new CommandResult(String.format(MESSAGE_INTERACTION_SUCCESS, editedPerson));
     }
