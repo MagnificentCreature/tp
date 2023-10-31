@@ -11,14 +11,14 @@ import seedu.address.model.Model;
 /**
  * Represents a thread that manages the reminders.
  */
-public class ReminderManager extends Thread {
+public class ReminderScheduler extends Thread {
     private static final long FREQUENCY = 1; // in minutes
 
     private final Model model;
     private final UniqueReminderList reminderList = UniqueReminderList.getInstance();
     private final Object mutex;
 
-    private Logger logger = LogsCenter.getLogger(ReminderManager.class);
+    private Logger logger = LogsCenter.getLogger(ReminderScheduler.class);
 
     /**
      * Creates a ReminderManager object.
@@ -26,7 +26,7 @@ public class ReminderManager extends Thread {
      * @param taskQueue
      * @param mutex
      */
-    public ReminderManager(Model model, Object mutex) {
+    public ReminderScheduler(Model model, Object mutex) {
         this.model = model;
         this.mutex = mutex;
     }
